@@ -2,6 +2,7 @@ import { YogaDriver, YogaDriverConfig } from '@graphql-yoga/nestjs'
 import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { PrismaModule } from './prisma/prisma.module'
+import { FilmsModule } from './films/films.module';
 
 @Module({
   imports: [
@@ -9,7 +10,8 @@ import { PrismaModule } from './prisma/prisma.module'
       driver: YogaDriver,
       landingPage: true
     }),
-    PrismaModule
+    PrismaModule,
+    FilmsModule
   ]
 })
 export class AppModule { }
