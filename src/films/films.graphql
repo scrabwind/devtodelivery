@@ -1,0 +1,9 @@
+type Film {
+  episode_id: ID!
+  characters: [String!]!
+  created: String!
+}
+
+type Query {
+  films(episode_id: ID): [Film!]!
+}

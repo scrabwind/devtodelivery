@@ -11,7 +11,7 @@ export const FilmsSchema = z.object({
   "created": z.coerce.date(),
   "director": z.string(),
   "edited": z.coerce.date(),
-  "episode_id": z.number(),
+  "episode_id": z.string(),
   "opening_crawl": z.string(),
   "planets": z.array(z.string().url()),
   "producer": z.string(),

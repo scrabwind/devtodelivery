@@ -5,4 +5,4 @@ import { FilmsResolver } from './films.resolver';
 @Module({
   providers: [FilmsService, FilmsResolver]
 })
-export class FilmsModule {}
+export class FilmsModule { }
