@@ -1,10 +1,15 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { YogaDriver, YogaDriverConfig } from '@graphql-yoga/nestjs'
+import { Module } from '@nestjs/common'
+import { GraphQLModule } from '@nestjs/graphql'
+import { PrismaModule } from './prisma/prisma.module'
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [
+    GraphQLModule.forRoot<YogaDriverConfig>({
+      driver: YogaDriver,
+      landingPage: true
+    }),
+    PrismaModule
+  ]
 })
-export class AppModule {}
+export class AppModule { }

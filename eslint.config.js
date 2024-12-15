@@ -7,12 +7,10 @@ export default antfu({
       'ts/consistent-type-definitions': ['error', 'type'],
       'antfu/no-top-level-await': 'off',
       'no-console': 'warn',
-      'ts/no-unsafe-argument': 'off',
-      'ts/no-unsafe-assignment': 'off',
-      'ts/no-unsafe-call': 'off',
-      'ts/no-unsafe-member-access': 'off',
-      'ts/no-unsafe-type-assertion': 'off'
-
+      'ts/explicit-function-return-type': 'off',
+      'ts/explicit-module-boundary-types': 'off',
+      'ts/no-explicit-any': 'off',
+      'eslint-comments/no-unlimited-disable': 'off'
     }
   },
   stylistic: {
