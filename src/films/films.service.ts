@@ -1,38 +1,40 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable, Logger } from '@nestjs/common'
 import axios from 'axios'
 import { Film } from 'src/generated/graphql.js'
-import { Films } from 'SWAPISchemas/films.js'
+import { APIFilms, APIResponse } from 'SWAPISchemas/index.js'
 
 @Injectable()
 export class FilmsService {
+  private readonly logger = new Logger(FilmsService.name)
+
   async findOne(episode_id: string): Promise<Film> {
-    const { data, status, statusText } = await axios.get<Films>(`${process.env.BASE_URL}/films/${episode_id}`)
+    const { data, status, statusText } = await axios.get<APIFilms>(`${process.env.BASE_URL}/films/${episode_id}`)
     if (status !== 200) {
-      console.error(`Error ${status}: ${statusText}`)
+      this.logger.error(`Error ${status}: ${statusText}`)
     }
     const results: Film = {
       ...data,
       id: data.episode_id,
-      created: data.created.toString(),
-      releaseDate: data.release_date.toString(),
+      created: data.created,
+      releaseDate: data.release_date,
       openingCrawl: data.opening_crawl,
-      edited: data.edited.toString()
+      edited: data.edited
     }
     return results
   }
 
   async findAll(): Promise<Film[]> {
-    const { data, status, statusText } = await axios.get<{ results: Films[] }>(`${process.env.BASE_URL}/films/`)
+    const { data, status, statusText } = await axios.get<APIResponse<APIFilms>>(`${process.env.BASE_URL}/films/`)
     if (status !== 200) {
-      console.error(`Error ${status}: ${statusText}`)
+      this.logger.error(`Error ${status}: ${statusText}`)
     }
     const results: Film[] = data.results.map(v => ({
       ...v,
       id: v.episode_id,
-      created: v.created.toString(),
-      releaseDate: v.release_date.toString(),
+      created: v.created,
+      releaseDate: v.release_date,
       openingCrawl: v.opening_crawl,
-      edited: v.edited.toString()
+      edited: v.edited
     }))
     return results
   }
