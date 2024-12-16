@@ -5,6 +5,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { FilmsModule } from './films/films.module';
 import { useResponseCache } from '@graphql-yoga/plugin-response-cache';
 import { join } from 'path';
+import { DateTimeISOResolver, URLResolver, DateResolver } from 'graphql-scalars'
 
 @Module({
   imports: [
@@ -19,7 +20,11 @@ import { join } from 'path';
       definitions: {
         path: join(process.cwd(), 'src/generated/graphql.ts')
       },
-
+      resolvers: {
+        Date: DateResolver,
+        DateTimeISO: DateTimeISOResolver,
+        URL: URLResolver
+      }
     }),
     ConfigModule.forRoot(),
     FilmsModule

@@ -8,27 +8,27 @@ import { Films } from 'SWAPISchemas/films';
 export class FilmsService {
 
   async findOne(episode_id: string): Promise<Film> {
-    const { data } = await axios.get<Films>(`${process.env.BASE_URL}/films/${episode_id}`)
+    const { data, status } = await axios.get<Films>(`${process.env.BASE_URL}/films/${episode_id}`)
     const results: Film = {
-      characters: data.characters,
+      ...data,
+      id: data.episode_id,
       created: data.created.toString(),
-      episode_id: data.episode_id
+      releaseDate: data.release_date.toString(),
+      openingCrawl: data.opening_crawl,
+      edited: data.edited.toString()
     }
     return results
   }
 
   async findAll(): Promise<Film[]> {
-    console.log(process.env.BASE_URL)
-    const { data } = await axios.get<{ results: Films[] }>(`${process.env.BASE_URL}/films/`)
-    console.log(data)
-    const results: Film[] = data.results.map(({
-      characters,
-      created,
-      episode_id
-    }) => ({
-      characters,
-      created: created.toString(),
-      episode_id
+    const { data, status } = await axios.get<{ results: Films[] }>(`${process.env.BASE_URL}/films/`)
+    const results: Film[] = data.results.map((v) => ({
+      ...v,
+      id: v.episode_id,
+      created: v.created.toString(),
+      releaseDate: v.release_date.toString(),
+      openingCrawl: v.opening_crawl,
+      edited: v.edited.toString()
     }))
     return results
   }

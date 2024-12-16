@@ -1,9 +1,24 @@
+scalar DateTimeISO
+scalar URL
+scalar Date
+
 type Film {
-  episode_id: ID!
-  characters: [String!]!
-  created: String!
+  id: ID!
+  characters: [URL]!
+  created: DateTimeISO!
+  director: String!
+  edited: DateTimeISO!
+  openingCrawl: String!
+  planets: [URL]!
+  producer: String!
+  releaseDate: String!
+  species: [URL]!
+  starships: [URL]!
+  title: String!
+  url: URL!
+  vehicles: [URL]!
 }
 
 type Query {
-  films(episode_id: ID): [Film!]!
+  films(id: ID): [Film!]!
 }
