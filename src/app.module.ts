@@ -6,6 +6,8 @@ import { ConfigModule } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 import { DateResolver, DateTimeISOResolver, URLResolver } from 'graphql-scalars'
 import { FilmsModule } from './films/films.module.js'
+import { PeopleModule } from './people/people.module.js'
+import { PeopleService } from './people/people.service.js'
 
 @Module({
   imports: [
@@ -27,7 +29,9 @@ import { FilmsModule } from './films/films.module.js'
       }
     }),
     ConfigModule.forRoot(),
-    FilmsModule
-  ]
+    FilmsModule,
+    PeopleModule
+  ],
+  providers: [PeopleService]
 })
 export class AppModule { }

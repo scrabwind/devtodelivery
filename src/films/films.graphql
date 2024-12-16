@@ -1,6 +1,7 @@
 scalar DateTimeISO
 scalar URL
 scalar Date
+scalar JSON
 
 type Film {
   id: ID!
@@ -21,4 +22,11 @@ type Film {
 
 type Query {
   films(id: ID): [Film!]!
+  summary(sort: SortOrder): JSON!
+  frequency: JSON!
+}
+
+enum SortOrder {
+  ASC
+  DESC
 }

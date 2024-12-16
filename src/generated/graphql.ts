@@ -8,6 +8,11 @@
 /* tslint:disable */
 /* eslint-disable */
 
+export enum SortOrder {
+    ASC = "ASC",
+    DESC = "DESC"
+}
+
 export interface Film {
     id: string;
     characters: Nullable<URL>[];
@@ -27,8 +32,11 @@ export interface Film {
 
 export interface IQuery {
     films(id?: Nullable<string>): Film[] | Promise<Film[]>;
+    summary(sort?: Nullable<SortOrder>): JSON | Promise<JSON>;
+    frequency(): JSON | Promise<JSON>;
 }
 
 export type DateTimeISO = any;
 export type URL = any;
+export type JSON = any;
 type Nullable<T> = T | null;
