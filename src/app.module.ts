@@ -1,11 +1,11 @@
+import { join } from 'node:path'
 import { YogaDriver, YogaDriverConfig } from '@graphql-yoga/nestjs'
+import { useResponseCache } from '@graphql-yoga/plugin-response-cache'
 import { Module } from '@nestjs/common'
-import { ConfigModule } from '@nestjs/config';
+import { ConfigModule } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
-import { FilmsModule } from './films/films.module';
-import { useResponseCache } from '@graphql-yoga/plugin-response-cache';
-import { join } from 'path';
-import { DateTimeISOResolver, URLResolver, DateResolver } from 'graphql-scalars'
+import { DateResolver, DateTimeISOResolver, URLResolver } from 'graphql-scalars'
+import { FilmsModule } from './films/films.module.js'
 
 @Module({
   imports: [

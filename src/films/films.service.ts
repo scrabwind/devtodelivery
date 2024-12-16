@@ -1,14 +1,15 @@
-import { Injectable } from '@nestjs/common';
-import { Args, Query } from '@nestjs/graphql';
+import { Injectable } from '@nestjs/common'
 import axios from 'axios'
-import { Film } from 'src/generated/graphql';
-import { Films } from 'SWAPISchemas/films';
+import { Film } from 'src/generated/graphql.js'
+import { Films } from 'SWAPISchemas/films.js'
 
 @Injectable()
 export class FilmsService {
-
   async findOne(episode_id: string): Promise<Film> {
-    const { data, status } = await axios.get<Films>(`${process.env.BASE_URL}/films/${episode_id}`)
+    const { data, status, statusText } = await axios.get<Films>(`${process.env.BASE_URL}/films/${episode_id}`)
+    if (status !== 200) {
+      console.error(`Error ${status}: ${statusText}`)
+    }
     const results: Film = {
       ...data,
       id: data.episode_id,
@@ -21,8 +22,11 @@ export class FilmsService {
   }
 
   async findAll(): Promise<Film[]> {
-    const { data, status } = await axios.get<{ results: Films[] }>(`${process.env.BASE_URL}/films/`)
-    const results: Film[] = data.results.map((v) => ({
+    const { data, status, statusText } = await axios.get<{ results: Films[] }>(`${process.env.BASE_URL}/films/`)
+    if (status !== 200) {
+      console.error(`Error ${status}: ${statusText}`)
+    }
+    const results: Film[] = data.results.map(v => ({
       ...v,
       id: v.episode_id,
       created: v.created.toString(),

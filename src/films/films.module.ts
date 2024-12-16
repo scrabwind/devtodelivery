@@ -1,6 +1,6 @@
-import { Module } from '@nestjs/common';
-import { FilmsService } from './films.service';
-import { FilmsResolver } from './films.resolver';
+import { Module } from '@nestjs/common'
+import { FilmsResolver } from './films.resolver.js'
+import { FilmsService } from './films.service.js'
 
 @Module({
   providers: [FilmsService, FilmsResolver]

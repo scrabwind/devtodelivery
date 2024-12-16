@@ -5,7 +5,6 @@ export default antfu({
     tsconfigPath: 'tsconfig.json',
     overrides: {
       'ts/consistent-type-definitions': ['error', 'type'],
-      'antfu/no-top-level-await': 'off',
       'no-console': 'warn',
       'ts/explicit-function-return-type': 'off',
       'ts/explicit-module-boundary-types': 'off',
