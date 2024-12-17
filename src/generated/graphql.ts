@@ -37,6 +37,7 @@ export interface IQuery {
     summary(sort?: Nullable<SortOrder>): JSON | Promise<JSON>;
     frequency(): JSON | Promise<JSON>;
     species(id?: Nullable<string>, page?: Nullable<number>): Species[] | Promise<Species[]>;
+    starships(id?: Nullable<string>, page?: Nullable<number>): Starships[] | Promise<Starships[]>;
     vehicles(id?: Nullable<string>, page?: Nullable<number>): Vehicles[] | Promise<Vehicles[]>;
 }
 
@@ -55,6 +56,27 @@ export interface Species {
     name: string;
     people: URL[];
     skinColors: string;
+    url: URL;
+}
+
+export interface Starships {
+    cargoCapacity: string;
+    consumables: string;
+    costInCredits: string;
+    created: Date;
+    crew: string;
+    edited: Date;
+    films: URL[];
+    hyperdriveRating: string;
+    length: string;
+    manufacturer: string;
+    maxAtmospheringSpeed: string;
+    MGLT: string;
+    model: string;
+    name: string;
+    passengers: string;
+    pilots: URL[];
+    starshipClass: string;
     url: URL;
 }
 

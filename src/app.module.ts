@@ -8,6 +8,7 @@ import { DateResolver, DateTimeISOResolver, JSONResolver, URLResolver } from 'gr
 import { FilmsModule } from './films/films.module.js'
 import { PeopleModule } from './people/people.module.js'
 import { SpeciesModule } from './species/species.module.js'
+import { StarshipsModule } from './starships/starships.module.js'
 import { VehiclesModule } from './vehicles/vehicles.module.js'
 
 @Module({
@@ -40,7 +41,8 @@ import { VehiclesModule } from './vehicles/vehicles.module.js'
     FilmsModule,
     PeopleModule,
     SpeciesModule,
-    VehiclesModule
+    VehiclesModule,
+    StarshipsModule
   ]
 })
 export class AppModule { }
