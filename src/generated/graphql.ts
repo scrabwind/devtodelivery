@@ -8,6 +8,8 @@
 /* tslint:disable */
 /* eslint-disable */
 
+import { URL as _URL } from 'url'
+
 export enum SortOrder {
     ASC = "ASC",
     DESC = "DESC"
@@ -36,7 +38,7 @@ export interface IQuery {
     frequency(): JSON | Promise<JSON>;
 }
 
-export type DateTimeISO = any;
-export type URL = any;
+export type DateTimeISO = Date | string;
+export type URL = _URL | string;
 export type JSON = any;
 type Nullable<T> = T | null;

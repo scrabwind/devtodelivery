@@ -21,7 +21,6 @@ export class PeopleService {
     await this.getAllData(nextUrl)
   }
 
-  // `${process.env.BASE_URL}/people/`
   async findAllNames(): Promise<string[]> {
     this.peopleResults = []
     await this.getAllData(`${process.env.BASE_URL}/people/`)

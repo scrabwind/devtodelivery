@@ -4,10 +4,9 @@ import { useResponseCache } from '@graphql-yoga/plugin-response-cache'
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
-import { DateResolver, DateTimeISOResolver, URLResolver } from 'graphql-scalars'
+import { DateResolver, DateTimeISOResolver, JSONResolver, URLResolver } from 'graphql-scalars'
 import { FilmsModule } from './films/films.module.js'
 import { PeopleModule } from './people/people.module.js'
-import { PeopleService } from './people/people.service.js'
 
 @Module({
   imports: [
@@ -20,18 +19,24 @@ import { PeopleService } from './people/people.service.js'
       })],
       typePaths: ['./**/*.graphql'],
       definitions: {
-        path: join(process.cwd(), 'src/generated/graphql.ts')
+        path: join(process.cwd(), 'src/generated/graphql.ts'),
+        customScalarTypeMapping: {
+          Date: 'Date | string',
+          DateTimeISO: 'Date | string',
+          URL: '_URL | string'
+        },
+        additionalHeader: 'import { URL as _URL } from \'url\''
       },
       resolvers: {
         Date: DateResolver,
         DateTimeISO: DateTimeISOResolver,
-        URL: URLResolver
+        URL: URLResolver,
+        JSON: JSONResolver
       }
     }),
     ConfigModule.forRoot(),
     FilmsModule,
     PeopleModule
-  ],
-  providers: [PeopleService]
+  ]
 })
 export class AppModule { }
