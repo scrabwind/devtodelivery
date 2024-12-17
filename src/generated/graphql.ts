@@ -37,6 +37,7 @@ export interface IQuery {
     summary(sort?: Nullable<SortOrder>): JSON | Promise<JSON>;
     frequency(): JSON | Promise<JSON>;
     species(id?: Nullable<string>, page?: Nullable<number>): Species[] | Promise<Species[]>;
+    vehicles(id?: Nullable<string>, page?: Nullable<number>): Vehicles[] | Promise<Vehicles[]>;
 }
 
 export interface Species {
@@ -55,6 +56,25 @@ export interface Species {
     people: URL[];
     skinColors: string;
     url: URL;
+}
+
+export interface Vehicles {
+    cargoCapacity: string;
+    consumables: string;
+    costInCredits: string;
+    created: Date;
+    crew: string;
+    edited: Date;
+    films: URL[];
+    length: string;
+    manufacturer: string;
+    maxAtmospheringSpeed: string;
+    model: string;
+    name: string;
+    passengers: string;
+    pilots: URL[];
+    url: URL;
+    vehicleClass: string;
 }
 
 export type DateTimeISO = Date | string;

@@ -1,0 +1,25 @@
+scalar Date
+scalar URL
+
+type Vehicles {
+  cargoCapacity: String!,
+  consumables: String!,
+  costInCredits: String!,
+  created: Date!,
+  crew: String!,
+  edited: Date!,
+  films: [URL!]!,
+  length: String!,
+  manufacturer: String!,
+  maxAtmospheringSpeed: String!,
+  model: String!,
+  name: String!,
+  passengers: String!,
+  pilots: [URL!]!
+  url: URL!,
+  vehicleClass: String!
+}
+
+type Query {
+  vehicles(id: ID, page: Int): [Vehicles!]!
+}
