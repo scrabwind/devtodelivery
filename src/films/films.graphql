@@ -21,7 +21,7 @@ type Film {
 }
 
 type Query {
-  films(id: ID): [Film!]!
+  films(id: ID, page: Int): [Film!]!
   summary(sort: SortOrder): JSON!
   frequency: JSON!
 }

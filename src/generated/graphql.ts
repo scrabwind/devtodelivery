@@ -33,9 +33,28 @@ export interface Film {
 }
 
 export interface IQuery {
-    films(id?: Nullable<string>): Film[] | Promise<Film[]>;
+    films(id?: Nullable<string>, page?: Nullable<number>): Film[] | Promise<Film[]>;
     summary(sort?: Nullable<SortOrder>): JSON | Promise<JSON>;
     frequency(): JSON | Promise<JSON>;
+    species(id?: Nullable<string>, page?: Nullable<number>): Species[] | Promise<Species[]>;
+}
+
+export interface Species {
+    averageHeight: string;
+    averageLifespan: string;
+    classification: string;
+    created: Date;
+    designation: string;
+    edited: Date;
+    eyeColors: string;
+    films: URL[];
+    hairColors: string;
+    homeworld: string;
+    language: string;
+    name: string;
+    people: URL[];
+    skinColors: string;
+    url: URL;
 }
 
 export type DateTimeISO = Date | string;

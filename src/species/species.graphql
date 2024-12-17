@@ -1,0 +1,24 @@
+scalar Date
+scalar URL
+
+type Species {
+  averageHeight: String!
+  averageLifespan: String!
+  classification: String!
+  created: Date!
+  designation: String!
+  edited: Date!
+  eyeColors: String!
+  films: [URL!]!
+  hairColors: String!
+  homeworld: String!
+  language: String!
+  name: String!
+  people: [URL!]!
+  skinColors: String!
+  url: URL!
+}
+
+type Query {
+  species(id: ID, page: Int): [Species!]!
+}
