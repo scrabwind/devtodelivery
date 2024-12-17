@@ -1,6 +1,6 @@
 import * as z from 'zod'
 
-export const PlanetSchema = z.object({
+export const PlanetsSchema = z.object({
   climate: z.string(),
   created: z.coerce.date(),
   diameter: z.string(),
@@ -17,4 +17,4 @@ export const PlanetSchema = z.object({
   url: z.string().url()
 })
 
-export type Planet = z.infer<typeof PlanetSchema>
+export type Planets = z.infer<typeof PlanetsSchema>

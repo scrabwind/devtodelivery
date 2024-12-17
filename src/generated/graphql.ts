@@ -36,9 +36,27 @@ export interface IQuery {
     films(id?: Nullable<string>, page?: Nullable<number>): Film[] | Promise<Film[]>;
     summary(sort?: Nullable<SortOrder>): JSON | Promise<JSON>;
     frequency(): JSON | Promise<JSON>;
+    planets(id?: Nullable<string>, page?: Nullable<number>): Planets[] | Promise<Planets[]>;
     species(id?: Nullable<string>, page?: Nullable<number>): Species[] | Promise<Species[]>;
     starships(id?: Nullable<string>, page?: Nullable<number>): Starships[] | Promise<Starships[]>;
     vehicles(id?: Nullable<string>, page?: Nullable<number>): Vehicles[] | Promise<Vehicles[]>;
+}
+
+export interface Planets {
+    climate: string;
+    created: Date;
+    diameter: string;
+    edited: Date;
+    films?: Nullable<URL[]>;
+    gravity: string;
+    name: string;
+    orbitalPeriod: string;
+    population: string;
+    residents?: Nullable<URL[]>;
+    rotationPeriod: string;
+    surfaceWater: string;
+    terrain: string;
+    url: URL;
 }
 
 export interface Species {

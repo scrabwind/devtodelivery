@@ -1,0 +1,23 @@
+scalar Date
+scalar URL
+
+type Planets {
+  climate: String!,
+  created: Date!,
+  diameter: String!,
+  edited: Date!,
+  films: [URL!],
+  gravity: String!,
+  name: String!,
+  orbitalPeriod: String!,
+  population: String!,
+  residents: [URL!],
+  rotationPeriod: String!,
+  surfaceWater: String!,
+  terrain: String!,
+  url: URL!
+}
+
+type Query {
+  planets(id: ID, page: Int): [Planets!]!
+}
