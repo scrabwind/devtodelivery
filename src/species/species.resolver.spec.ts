@@ -1,6 +1,6 @@
 import type { TestingModule } from '@nestjs/testing'
 import { Test } from '@nestjs/testing'
-import { SpeciesResolver } from './species.resolver'
+import { SpeciesResolver } from './species.resolver.js'
 
 describe('speciesResolver', () => {
   let resolver: SpeciesResolver
