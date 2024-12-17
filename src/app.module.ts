@@ -1,10 +1,12 @@
 import { join } from 'node:path'
+import { createRedisCache } from '@envelop/response-cache-redis'
 import { YogaDriver, YogaDriverConfig } from '@graphql-yoga/nestjs'
-import { useResponseCache } from '@graphql-yoga/plugin-response-cache'
+import { Cache, useResponseCache } from '@graphql-yoga/plugin-response-cache'
 import { Module } from '@nestjs/common'
-import { ConfigModule } from '@nestjs/config'
+import { ConfigModule, ConfigService } from '@nestjs/config'
 import { GraphQLModule } from '@nestjs/graphql'
 import { DateResolver, DateTimeISOResolver, JSONResolver, URLResolver } from 'graphql-scalars'
+import { Redis } from 'ioredis'
 import { FilmsModule } from './films/films.module.js'
 import { PeopleModule } from './people/people.module.js'
 import { PlanetsModule } from './planets/planets.module.js'
@@ -14,31 +16,41 @@ import { VehiclesModule } from './vehicles/vehicles.module.js'
 
 @Module({
   imports: [
-    GraphQLModule.forRoot<YogaDriverConfig>({
+    ConfigModule.forRoot({ isGlobal: true }),
+    GraphQLModule.forRootAsync<YogaDriverConfig>({
       driver: YogaDriver,
-      landingPage: true,
-      plugins: [useResponseCache({
-        session: () => null,
-        ttl: 1000 * 60 * 60 * 24 // 24 Hours
-      })],
-      typePaths: ['./**/*.graphql'],
-      definitions: {
-        path: join(process.cwd(), 'src/generated/graphql.ts'),
-        customScalarTypeMapping: {
-          Date: 'Date | string',
-          DateTimeISO: 'Date | string',
-          URL: '_URL | string'
+      useFactory: async (configService: ConfigService) => ({
+        landingPage: true,
+        plugins: [useResponseCache({
+          session: () => null,
+          cache: createRedisCache({
+            redis: new Redis({
+              host: configService.get<string>('REDIS_HOST'),
+              port: Number(configService.get<number>('REDIS_PORT')),
+              password: configService.get<string>('REDIS_PASSWORD')
+            })
+          }) as Cache,
+          ttl: 1000 * 6379 * 60 * 24 // 24 Hours
+        })],
+        typePaths: ['./**/*.graphql'],
+        definitions: {
+          path: join(process.cwd(), 'src/generated/graphql.ts'),
+          customScalarTypeMapping: {
+            Date: 'Date | string',
+            DateTimeISO: 'Date | string',
+            URL: '_URL | string'
+          },
+          additionalHeader: 'import { URL as _URL } from \'url\''
         },
-        additionalHeader: 'import { URL as _URL } from \'url\''
-      },
-      resolvers: {
-        Date: DateResolver,
-        DateTimeISO: DateTimeISOResolver,
-        URL: URLResolver,
-        JSON: JSONResolver
-      }
+        resolvers: {
+          Date: DateResolver,
+          DateTimeISO: DateTimeISOResolver,
+          URL: URLResolver,
+          JSON: JSONResolver
+        }
+      }),
+      inject: [ConfigService]
     }),
-    ConfigModule.forRoot(),
     FilmsModule,
     PeopleModule,
     SpeciesModule,

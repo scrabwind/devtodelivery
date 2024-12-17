@@ -3,7 +3,6 @@ import { GraphQLDefinitionsFactory } from '@nestjs/graphql'
 
 const definitionsFactory = new GraphQLDefinitionsFactory()
 void definitionsFactory.generate({
-  watch: true,
   typePaths: ['./src/**/*.graphql'],
   path: join(process.cwd(), 'src/generated/graphql.ts'),
   customScalarTypeMapping: {
