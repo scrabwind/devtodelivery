@@ -43,16 +43,17 @@ export interface IQuery {
 }
 
 export interface Planets {
+    id: string;
     climate: string;
     created: Date;
     diameter: string;
     edited: Date;
-    films?: Nullable<URL[]>;
+    films: URL[];
     gravity: string;
     name: string;
     orbitalPeriod: string;
     population: string;
-    residents?: Nullable<URL[]>;
+    residents: URL[];
     rotationPeriod: string;
     surfaceWater: string;
     terrain: string;

@@ -1,4 +1,5 @@
 import antfu from '@antfu/eslint-config'
+import jest from 'eslint-plugin-jest'
 
 export default antfu({
   typescript: {
@@ -18,4 +19,4 @@ export default antfu({
       'node/prefer-global/process': 'off'
     }
   }
-})
+}, ...jest.configs['flat/recommended'])

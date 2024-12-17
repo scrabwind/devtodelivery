@@ -23,13 +23,15 @@ import { VehiclesModule } from './vehicles/vehicles.module.js'
         landingPage: true,
         plugins: [useResponseCache({
           session: () => null,
-          cache: createRedisCache({
-            redis: new Redis({
-              host: configService.get<string>('REDIS_HOST'),
-              port: Number(configService.get<number>('REDIS_PORT')),
-              password: configService.get<string>('REDIS_PASSWORD')
-            })
-          }) as Cache,
+          cache: configService.get<string>('NODE_ENVIRONMENT') === 'production'
+            ? createRedisCache({
+              redis: new Redis({
+                host: configService.get<string>('REDIS_HOST'),
+                port: Number(configService.get<number>('REDIS_PORT')),
+                password: configService.get<string>('REDIS_PASSWORD')
+              })
+            }) as Cache
+            : undefined,
           ttl: 1000 * 6379 * 60 * 24 // 24 Hours
         })],
         typePaths: ['./**/*.graphql'],

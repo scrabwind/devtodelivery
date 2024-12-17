@@ -2,16 +2,17 @@ scalar Date
 scalar URL
 
 type Planets {
+  id: ID!
   climate: String!,
   created: Date!,
   diameter: String!,
   edited: Date!,
-  films: [URL!],
+  films: [URL!]!,
   gravity: String!,
   name: String!,
   orbitalPeriod: String!,
   population: String!,
-  residents: [URL!],
+  residents: [URL!]!,
   rotationPeriod: String!,
   surfaceWater: String!,
   terrain: String!,
