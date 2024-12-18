@@ -100,7 +100,7 @@ export class FilmsService {
 
       if (occurances === mostMatches) {
         const isArray = Array.isArray(currentMostName)
-        isArray ? (currentMostName as string[]).push(name) : currentMostName = [name]
+        isArray ? (currentMostName as string[]).push(name) : currentMostName = [currentMostName as string, name]
         continue
       }
 

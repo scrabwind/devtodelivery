@@ -4,7 +4,7 @@ import type { Film } from 'src/generated/graphql.js'
 import type { APIFilms, APIResponse } from 'SWAPISchemas/index.js'
 import { Test } from '@nestjs/testing'
 import axios from 'axios'
-import { correctRequest, incorrectRequest } from '../../mocks/films.js'
+import { correctRequest, descriptionWords, incorrectRequest, transformedFilms } from '../../mocks/films.js'
 import { PeopleService } from '../people/people.service.js'
 import { FilmsService } from './films.service.js'
 
@@ -13,6 +13,7 @@ jest.mock('axios')
 describe('filmsService', () => {
   const mockedAxios = jest.mocked(axios)
   let service: FilmsService
+  let peopleService: PeopleService
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -20,6 +21,7 @@ describe('filmsService', () => {
     }).compile()
 
     service = module.get<FilmsService>(FilmsService)
+    peopleService = module.get<PeopleService>(PeopleService)
   })
 
   afterEach(() => {
@@ -121,6 +123,50 @@ describe('filmsService', () => {
       expect.assertions(1)
       mockedAxios.get.mockResolvedValue(incorrectRequest)
       return expect(service.findOne('1')).rejects.toThrow()
+    })
+  })
+
+  describe('getDescriptions', () => {
+    it('should return correct value', async () => {
+      const spyedFindAll = jest.spyOn(service, 'findAll')
+
+      spyedFindAll.mockResolvedValue([transformedFilms])
+
+      const words = await service.getDescriptions()
+
+      expect(words.every(v => descriptionWords.includes(v))).toBe(true)
+    })
+  })
+
+  describe('getFrequency', () => {
+    it('should return one name when most matches', async () => {
+      const spyedFindAllNames = jest.spyOn(peopleService, 'findAllNames')
+      const spyedGetDescriptions = jest.spyOn(service, 'getDescriptions')
+
+      spyedFindAllNames.mockResolvedValue(['Jake', 'Mike'])
+      spyedGetDescriptions.mockResolvedValue(['Lorem', 'Ipsum', 'Jake', 'Jake', 'Mike'])
+
+      const mostFrequent = await service.getFrequency()
+
+      expect(Array.isArray(mostFrequent)).toBeFalsy()
+
+      expect(mostFrequent).toBe('Jake')
+    })
+
+    it('should return multiple names when same amount of matches', async () => {
+      const spyedFindAllNames = jest.spyOn(peopleService, 'findAllNames')
+      const spyedGetDescriptions = jest.spyOn(service, 'getDescriptions')
+
+      spyedFindAllNames.mockResolvedValue(['Jake', 'Mike', 'Thomas', 'Kamil'])
+      spyedGetDescriptions.mockResolvedValue(['Lorem', 'Ipsum', 'Jake', 'Jake', 'Mike', 'Mike', 'Thomas'])
+
+      const mostFrequent = await service.getFrequency()
+
+      expect(Array.isArray(mostFrequent)).toBeTruthy()
+
+      expect(mostFrequent).toContain('Jake')
+      expect(mostFrequent).toContain('Mike')
+      expect(mostFrequent).not.toContain('Thomas')
     })
   })
 })
