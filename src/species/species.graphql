@@ -2,6 +2,7 @@ scalar Date
 scalar URL
 
 type Species {
+  id: ID!
   averageHeight: String!
   averageLifespan: String!
   classification: String!

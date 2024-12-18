@@ -61,6 +61,7 @@ export interface Planets {
 }
 
 export interface Species {
+    id: string;
     averageHeight: string;
     averageLifespan: string;
     classification: string;

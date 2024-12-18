@@ -1,7 +1,5 @@
-import type { AxiosResponse } from 'axios'
 import type { Planets } from 'src/generated/graphql.js'
 import type { APIPlanets } from 'SWAPISchemas/index.js'
-import { AxiosHeaders } from 'axios'
 import { createRequest } from './common.js'
 
 export const planet: APIPlanets = {
