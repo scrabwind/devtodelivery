@@ -1,6 +1,6 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common'
 import axios from 'axios'
-import { APIVehicles, APIResponse } from 'SWAPISchemas/index.js'
+import { APIResponse, APIVehicles } from 'SWAPISchemas/index.js'
 import { Vehicles } from '../generated/graphql.js'
 
 @Injectable()
@@ -30,7 +30,7 @@ export class VehiclesService {
         url: data.url,
         created: data.created,
         edited: data.edited,
-        films: data.films,
+        films: data.films
       }
 
       return await Promise.resolve(results)
@@ -64,7 +64,7 @@ export class VehiclesService {
         url: v.url,
         created: v.created,
         edited: v.edited,
-        films: v.films,
+        films: v.films
       }))
       return await Promise.resolve(results)
     }

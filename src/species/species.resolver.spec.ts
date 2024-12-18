@@ -41,7 +41,7 @@ describe('speciesResolver', () => {
   })
 
   it('should use findOne with id', async () => {
-    const res = await resolver.species("1")
+    const res = await resolver.species('1')
 
     expect(res.length).toEqual(1)
 

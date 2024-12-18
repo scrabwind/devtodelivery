@@ -1,6 +1,5 @@
 import { Logger } from '@nestjs/common'
 import { Args, Query, Resolver } from '@nestjs/graphql'
-import { Film } from '../generated/graphql.js'
 import { FilmsService } from './films.service.js'
 
 @Resolver('Films')
@@ -8,11 +7,11 @@ export class FilmsResolver {
   constructor(private readonly filmService: FilmsService) { }
   private readonly logger = new Logger(FilmsResolver.name)
   @Query()
-  async films(@Args('episode_id') episode_id?: string): Promise<Film[] | null> {
+  async films(@Args('episode_id') episode_id?: string) {
     if (episode_id !== undefined) {
       return [await this.filmService.findOne(episode_id)]
     }
-    return this.filmService.findAll()
+    return this.filmService.findAll(1)
   }
 
   @Query()

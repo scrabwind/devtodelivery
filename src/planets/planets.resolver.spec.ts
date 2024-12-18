@@ -41,7 +41,7 @@ describe('planetsResolver', () => {
   })
 
   it('should use findOne with id', async () => {
-    const res = await resolver.planets("1")
+    const res = await resolver.planets('1')
 
     expect(res.length).toEqual(1)
 

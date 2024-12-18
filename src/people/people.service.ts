@@ -27,7 +27,6 @@ export class PeopleService {
 
     await this.getAllData(`${process.env.BASE_URL}/people/`)
 
-    console.log(this.peopleResults[0])
     return this.peopleResults.map(v => v.name)
   }
 }

@@ -41,7 +41,7 @@ describe('starshipsResolver', () => {
   })
 
   it('should use findOne with id', async () => {
-    const res = await resolver.starships("1")
+    const res = await resolver.starships('1')
 
     expect(res.length).toEqual(1)
 

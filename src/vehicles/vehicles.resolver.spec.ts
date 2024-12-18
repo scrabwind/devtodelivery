@@ -41,7 +41,7 @@ describe('vehiclesResolver', () => {
   })
 
   it('should use findOne with id', async () => {
-    const res = await resolver.vehicles("1")
+    const res = await resolver.vehicles('1')
 
     expect(res.length).toEqual(1)
 

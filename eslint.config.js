@@ -19,4 +19,11 @@ export default antfu({
       'node/prefer-global/process': 'off'
     }
   }
-}, ...jest.configs['flat/recommended'])
+}, {
+  ...jest.configs['flat/recommended'],
+  files: ['**/*.spec.ts', '**/*.e2e.ts']
+}, {
+  rules: {
+    'ts/unbound-method': 'off'
+  }
+})

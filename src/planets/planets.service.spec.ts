@@ -66,8 +66,8 @@ describe('planetsService', () => {
   describe('findAll', () => {
     it('should return all resources on page', async () => {
       mockedAxios.get.mockImplementation(async () => {
-        const response: AxiosResponse<Pick<APIResponse<APIPlanets>, 'results'>> =
-        {
+        const response: AxiosResponse<Pick<APIResponse<APIPlanets>, 'results'>>
+        = {
           ...correctRequest,
           data: {
             results: Array.from({ length: 10 }).fill(correctRequest.data) as APIPlanets[]
@@ -85,8 +85,8 @@ describe('planetsService', () => {
 
     it('should change results based on pagination', async () => {
       mockedAxios.get.mockImplementation(async (url) => {
-        const response: AxiosResponse<Pick<APIResponse<APIPlanets>, 'results'>> =
-        {
+        const response: AxiosResponse<Pick<APIResponse<APIPlanets>, 'results'>>
+        = {
           ...correctRequest,
           data: {
             results: Array.from({ length: 10 }).fill(correctRequest.data) as APIPlanets[]

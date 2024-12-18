@@ -1,7 +1,7 @@
 import type { TestingModule } from '@nestjs/testing'
 import type { AxiosResponse } from 'axios'
 import type { Vehicles } from 'src/generated/graphql.js'
-import type { APIVehicles, APIResponse } from 'SWAPISchemas/index.js'
+import type { APIResponse, APIVehicles } from 'SWAPISchemas/index.js'
 import { Test } from '@nestjs/testing'
 import axios from 'axios'
 import { correctRequest, incorrectRequest } from '../../mocks/vehicles.js'
@@ -44,7 +44,6 @@ describe('vehiclesService', () => {
       expect(result).toHaveProperty('passengers')
       expect(result).toHaveProperty('cargoCapacity')
       expect(result).toHaveProperty('consumables')
-      expect(result).toHaveProperty('hyperdriveRating')
       expect(result).toHaveProperty('vehicleClass')
       expect(result).toHaveProperty('pilots')
       expect(result).toHaveProperty('films')
@@ -69,8 +68,8 @@ describe('vehiclesService', () => {
   describe('findAll', () => {
     it('should return all resources on page', async () => {
       mockedAxios.get.mockImplementation(async () => {
-        const response: AxiosResponse<Pick<APIResponse<APIVehicles>, 'results'>> =
-        {
+        const response: AxiosResponse<Pick<APIResponse<APIVehicles>, 'results'>>
+        = {
           ...correctRequest,
           data: {
             results: Array.from({ length: 10 }).fill(correctRequest.data) as APIVehicles[]
@@ -88,8 +87,8 @@ describe('vehiclesService', () => {
 
     it('should change results based on pagination', async () => {
       mockedAxios.get.mockImplementation(async (url) => {
-        const response: AxiosResponse<Pick<APIResponse<APIVehicles>, 'results'>> =
-        {
+        const response: AxiosResponse<Pick<APIResponse<APIVehicles>, 'results'>>
+        = {
           ...correctRequest,
           data: {
             results: Array.from({ length: 10 }).fill(correctRequest.data) as APIVehicles[]
@@ -103,7 +102,7 @@ describe('vehiclesService', () => {
         }
 
         if (url.includes('2')) {
-          const changedResponse = Object.assign(response, response.data.results[0].name = '2nd planet')
+          const changedResponse = Object.assign(response, response.data.results[0].name = '2nd vehicle')
           return Promise.resolve(changedResponse)
         }
 

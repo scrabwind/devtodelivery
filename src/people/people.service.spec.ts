@@ -1,9 +1,10 @@
-import axios, { AxiosResponse } from 'axios'
 import type { TestingModule } from '@nestjs/testing'
+import type { AxiosResponse } from 'axios'
+import type { APIPPeople, APIResponse } from 'SWAPISchemas/index.js'
 import { Test } from '@nestjs/testing'
-import { PeopleService } from './people.service.js'
+import axios from 'axios'
 import { correctRequest, people } from '../../mocks/people.js'
-import { APIPPeople, APIResponse } from 'SWAPISchemas/index.js'
+import { PeopleService } from './people.service.js'
 
 jest.mock('axios')
 
@@ -28,51 +29,46 @@ describe('peopleService', () => {
   })
 
   it('should return correct data', async () => {
-    const spyGetAllData = jest.spyOn(service, 'getAllData');
+    const spyGetAllData = jest.spyOn(service, 'getAllData')
     spyGetAllData.mockImplementation(async () => {
       Object.defineProperty(service, 'peopleResults', {
         value: [people, people],
         writable: true
       })
 
-      Promise.resolve()
+      await Promise.resolve()
     })
-
 
     const results = await service.findAllNames()
 
     expect(results.length).toEqual(2)
-    expect(results[0]).toEqual("Luke Skywalker")
-    expect(results[1]).toEqual("Luke Skywalker")
+    expect(results[0]).toEqual('Luke Skywalker')
+    expect(results[1]).toEqual('Luke Skywalker')
   })
 
   it('should called multiple times with multiple pages', async () => {
     let callCounter = 0
 
     mockedAxios.get.mockImplementation(async () => {
-      const url = callCounter === 0 ? "nextUrl" : null
-      const response: AxiosResponse<APIResponse<APIPPeople>, 'results'> =
-      {
+      const response: AxiosResponse<APIResponse<APIPPeople>, 'results'>
+      = {
         ...correctRequest,
         data: {
           results: [],
-          next: callCounter === 0 ? "nextUrl" : null,
+          next: callCounter === 0 ? 'nextUrl' : null,
           count: 2,
-          previous: ""
+          previous: ''
         }
       }
-
-      console.log(url)
 
       callCounter++
 
       return Promise.resolve(response)
     })
-    const spyGetAllData = jest.spyOn(service, 'getAllData');
+    const spyGetAllData = jest.spyOn(service, 'getAllData')
 
     await service.findAllNames()
 
     expect(spyGetAllData).toHaveBeenCalledTimes(2)
-
   })
 })

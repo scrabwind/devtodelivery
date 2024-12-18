@@ -1,7 +1,7 @@
 import type { TestingModule } from '@nestjs/testing'
 import type { AxiosResponse } from 'axios'
 import type { Starships } from 'src/generated/graphql.js'
-import type { APIStarships, APIResponse } from 'SWAPISchemas/index.js'
+import type { APIResponse, APIStarships } from 'SWAPISchemas/index.js'
 import { Test } from '@nestjs/testing'
 import axios from 'axios'
 import { correctRequest, incorrectRequest } from '../../mocks/starships.js'
@@ -70,8 +70,8 @@ describe('starshipsService', () => {
   describe('findAll', () => {
     it('should return all resources on page', async () => {
       mockedAxios.get.mockImplementation(async () => {
-        const response: AxiosResponse<Pick<APIResponse<APIStarships>, 'results'>> =
-        {
+        const response: AxiosResponse<Pick<APIResponse<APIStarships>, 'results'>>
+        = {
           ...correctRequest,
           data: {
             results: Array.from({ length: 10 }).fill(correctRequest.data) as APIStarships[]
@@ -89,8 +89,8 @@ describe('starshipsService', () => {
 
     it('should change results based on pagination', async () => {
       mockedAxios.get.mockImplementation(async (url) => {
-        const response: AxiosResponse<Pick<APIResponse<APIStarships>, 'results'>> =
-        {
+        const response: AxiosResponse<Pick<APIResponse<APIStarships>, 'results'>>
+        = {
           ...correctRequest,
           data: {
             results: Array.from({ length: 10 }).fill(correctRequest.data) as APIStarships[]
@@ -104,7 +104,7 @@ describe('starshipsService', () => {
         }
 
         if (url.includes('2')) {
-          const changedResponse = Object.assign(response, response.data.results[0].name = '2nd planet')
+          const changedResponse = Object.assign(response, response.data.results[0].name = '2nd starship')
           return Promise.resolve(changedResponse)
         }
 
