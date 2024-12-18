@@ -2,6 +2,7 @@ scalar Date
 scalar URL
 
 type Vehicles {
+  id: ID!
   cargoCapacity: String!,
   consumables: String!,
   costInCredits: String!,

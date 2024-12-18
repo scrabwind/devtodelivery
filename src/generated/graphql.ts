@@ -102,6 +102,7 @@ export interface Starships {
 }
 
 export interface Vehicles {
+    id: string;
     cargoCapacity: string;
     consumables: string;
     costInCredits: string;
