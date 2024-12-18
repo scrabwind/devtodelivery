@@ -1,0 +1,1392 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>devtodelivery-swapi documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">devtodelivery-swapi documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#correctRequest" title="src/mocks/films.ts" ><b>correctRequest</b>&nbsp;&nbsp;&nbsp;(src/.../films.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#correctRequest" title="src/mocks/people.ts" ><b>correctRequest</b>&nbsp;&nbsp;&nbsp;(src/.../people.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#correctRequest" title="src/mocks/planets.ts" ><b>correctRequest</b>&nbsp;&nbsp;&nbsp;(src/.../planets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#correctRequest" title="src/mocks/species.ts" ><b>correctRequest</b>&nbsp;&nbsp;&nbsp;(src/.../species.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#correctRequest" title="src/mocks/starships.ts" ><b>correctRequest</b>&nbsp;&nbsp;&nbsp;(src/.../starships.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#correctRequest" title="src/mocks/vehicles.ts" ><b>correctRequest</b>&nbsp;&nbsp;&nbsp;(src/.../vehicles.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#descriptionWords" title="src/mocks/films.ts" ><b>descriptionWords</b>&nbsp;&nbsp;&nbsp;(src/.../films.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#films" title="src/mocks/films.ts" ><b>films</b>&nbsp;&nbsp;&nbsp;(src/.../films.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FilmsSchema" title="src/SWAPISchemas/films.ts" ><b>FilmsSchema</b>&nbsp;&nbsp;&nbsp;(src/.../films.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#incorrectRequest" title="src/mocks/films.ts" ><b>incorrectRequest</b>&nbsp;&nbsp;&nbsp;(src/.../films.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#incorrectRequest" title="src/mocks/planets.ts" ><b>incorrectRequest</b>&nbsp;&nbsp;&nbsp;(src/.../planets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#incorrectRequest" title="src/mocks/species.ts" ><b>incorrectRequest</b>&nbsp;&nbsp;&nbsp;(src/.../species.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#incorrectRequest" title="src/mocks/starships.ts" ><b>incorrectRequest</b>&nbsp;&nbsp;&nbsp;(src/.../starships.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#incorrectRequest" title="src/mocks/vehicles.ts" ><b>incorrectRequest</b>&nbsp;&nbsp;&nbsp;(src/.../vehicles.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#people" title="src/mocks/people.ts" ><b>people</b>&nbsp;&nbsp;&nbsp;(src/.../people.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PeopleSchema" title="src/SWAPISchemas/people.ts" ><b>PeopleSchema</b>&nbsp;&nbsp;&nbsp;(src/.../people.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#planet" title="src/mocks/planets.ts" ><b>planet</b>&nbsp;&nbsp;&nbsp;(src/.../planets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PlanetsSchema" title="src/SWAPISchemas/planets.ts" ><b>PlanetsSchema</b>&nbsp;&nbsp;&nbsp;(src/.../planets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#species" title="src/mocks/species.ts" ><b>species</b>&nbsp;&nbsp;&nbsp;(src/.../species.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#SpeciesSchema" title="src/SWAPISchemas/species.ts" ><b>SpeciesSchema</b>&nbsp;&nbsp;&nbsp;(src/.../species.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#starships" title="src/mocks/starships.ts" ><b>starships</b>&nbsp;&nbsp;&nbsp;(src/.../starships.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#StarshipsSchema" title="src/SWAPISchemas/starships.ts" ><b>StarshipsSchema</b>&nbsp;&nbsp;&nbsp;(src/.../starships.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#transformedFilms" title="src/mocks/films.ts" ><b>transformedFilms</b>&nbsp;&nbsp;&nbsp;(src/.../films.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#transformedPlanet" title="src/mocks/planets.ts" ><b>transformedPlanet</b>&nbsp;&nbsp;&nbsp;(src/.../planets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#transformedSpecies" title="src/mocks/species.ts" ><b>transformedSpecies</b>&nbsp;&nbsp;&nbsp;(src/.../species.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#transformedStarships" title="src/mocks/starships.ts" ><b>transformedStarships</b>&nbsp;&nbsp;&nbsp;(src/.../starships.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#transformedVehicles" title="src/mocks/vehicles.ts" ><b>transformedVehicles</b>&nbsp;&nbsp;&nbsp;(src/.../vehicles.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#vehicles" title="src/mocks/vehicles.ts" ><b>vehicles</b>&nbsp;&nbsp;&nbsp;(src/.../vehicles.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#VehiclesSchema" title="src/SWAPISchemas/vehicles.ts" ><b>VehiclesSchema</b>&nbsp;&nbsp;&nbsp;(src/.../vehicles.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/mocks/films.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="correctRequest"></a>
+                    <span class="name">
+                        <span ><b>correctRequest</b></span>
+                        <a href="#correctRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(films, &#x27;correct&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="descriptionWords"></a>
+                    <span class="name">
+                        <span ><b>descriptionWords</b></span>
+                        <a href="#descriptionWords"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  &#x27;Turmoil&#x27;,
+  &#x27;has&#x27;,
+  &#x27;engulfed&#x27;,
+  &#x27;the&#x27;,
+  &#x27;Galactic&#x27;,
+  &#x27;Republic&#x27;,
+  &#x27;The&#x27;,
+  &#x27;taxation&#x27;,
+  &#x27;of&#x27;,
+  &#x27;trade&#x27;,
+  &#x27;routes&#x27;,
+  &#x27;to&#x27;,
+  &#x27;outlying&#x27;,
+  &#x27;star&#x27;,
+  &#x27;systems&#x27;,
+  &#x27;is&#x27;,
+  &#x27;in&#x27;,
+  &#x27;dispute&#x27;,
+  &#x27;Hoping&#x27;,
+  &#x27;to&#x27;,
+  &#x27;resolve&#x27;,
+  &#x27;the&#x27;,
+  &#x27;matter&#x27;,
+  &#x27;with&#x27;,
+  &#x27;a&#x27;,
+  &#x27;blockade&#x27;,
+  &#x27;of&#x27;,
+  &#x27;deadly&#x27;,
+  &#x27;battleships&#x27;,
+  &#x27;the&#x27;,
+  &#x27;greedy&#x27;,
+  &#x27;Trade&#x27;,
+  &#x27;Federation&#x27;,
+  &#x27;has&#x27;,
+  &#x27;stopped&#x27;,
+  &#x27;all&#x27;,
+  &#x27;shipping&#x27;,
+  &#x27;to&#x27;,
+  &#x27;the&#x27;,
+  &#x27;small&#x27;,
+  &#x27;planet&#x27;,
+  &#x27;of&#x27;,
+  &#x27;Naboo&#x27;,
+  &#x27;While&#x27;,
+  &#x27;the&#x27;,
+  &#x27;Congress&#x27;,
+  &#x27;of&#x27;,
+  &#x27;the&#x27;,
+  &#x27;Republic&#x27;,
+  &#x27;endlessly&#x27;,
+  &#x27;debates&#x27;,
+  &#x27;this&#x27;,
+  &#x27;alarming&#x27;,
+  &#x27;chain&#x27;,
+  &#x27;of&#x27;,
+  &#x27;events&#x27;,
+  &#x27;the&#x27;,
+  &#x27;Supreme&#x27;,
+  &#x27;Chancellor&#x27;,
+  &#x27;has&#x27;,
+  &#x27;secretly&#x27;,
+  &#x27;dispatched&#x27;,
+  &#x27;two&#x27;,
+  &#x27;Jedi&#x27;,
+  &#x27;Knights&#x27;,
+  &#x27;the&#x27;,
+  &#x27;guardians&#x27;,
+  &#x27;of&#x27;,
+  &#x27;peace&#x27;,
+  &#x27;and&#x27;,
+  &#x27;justice&#x27;,
+  &#x27;in&#x27;,
+  &#x27;the&#x27;,
+  &#x27;galaxy&#x27;,
+  &#x27;to&#x27;,
+  &#x27;settle&#x27;,
+  &#x27;the&#x27;,
+  &#x27;conflict&#x27;
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="films"></a>
+                    <span class="name">
+                        <span ><b>films</b></span>
+                        <a href="#films"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Film.html" target="_self" >APIFilms</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  title: &#x27;The Phantom Menace&#x27;,
+  episode_id: &#x27;1&#x27;,
+  opening_crawl: &#x27;Turmoil has engulfed the\r\nGalactic Republic. The taxation\r\nof trade routes to outlying star\r\nsystems is in dispute.\r\n\r\nHoping to resolve the matter\r\nwith a blockade of deadly\r\nbattleships, the greedy Trade\r\nFederation has stopped all\r\nshipping to the small planet\r\nof Naboo.\r\n\r\nWhile the Congress of the\r\nRepublic endlessly debates\r\nthis alarming chain of events,\r\nthe Supreme Chancellor has\r\nsecretly dispatched two Jedi\r\nKnights, the guardians of\r\npeace and justice in the\r\ngalaxy, to settle the conflict....&#x27;,
+  director: &#x27;George Lucas&#x27;,
+  producer: &#x27;Rick McCallum&#x27;,
+  release_date: &#x27;1999-05-19&#x27;,
+  characters: [
+    &#x27;https://swapi.py4e.com/api/people/2/&#x27;
+  ],
+  planets: [
+    &#x27;https://swapi.py4e.com/api/planets/1/&#x27;
+  ],
+  starships: [
+    &#x27;https://swapi.py4e.com/api/starships/31/&#x27;
+  ],
+  vehicles: [
+    &#x27;https://swapi.py4e.com/api/vehicles/33/&#x27;
+  ],
+  species: [
+    &#x27;https://swapi.py4e.com/api/species/1/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-19T16:52:55.740000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T10:54:07.216000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/films/4/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="incorrectRequest"></a>
+                    <span class="name">
+                        <span ><b>incorrectRequest</b></span>
+                        <a href="#incorrectRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(films, &#x27;incorrect&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformedFilms"></a>
+                    <span class="name">
+                        <span ><b>transformedFilms</b></span>
+                        <a href="#transformedFilms"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Film.html" target="_self" >Film</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  id: &#x27;1&#x27;,
+  title: &#x27;The Phantom Menace&#x27;,
+  openingCrawl: &#x27;Turmoil has engulfed the\r\nGalactic Republic. The taxation\r\nof trade routes to outlying star\r\nsystems is in dispute.\r\n\r\nHoping to resolve the matter\r\nwith a blockade of deadly\r\nbattleships, the greedy Trade\r\nFederation has stopped all\r\nshipping to the small planet\r\nof Naboo.\r\n\r\nWhile the Congress of the\r\nRepublic endlessly debates\r\nthis alarming chain of events,\r\nthe Supreme Chancellor has\r\nsecretly dispatched two Jedi\r\nKnights, the guardians of\r\npeace and justice in the\r\ngalaxy, to settle the conflict....&#x27;,
+  director: &#x27;George Lucas&#x27;,
+  producer: &#x27;Rick McCallum&#x27;,
+  releaseDate: &#x27;1999-05-19&#x27;,
+  characters: [
+    &#x27;https://swapi.py4e.com/api/people/2/&#x27;
+  ],
+  planets: [
+    &#x27;https://swapi.py4e.com/api/planets/1/&#x27;
+  ],
+  starships: [
+    &#x27;https://swapi.py4e.com/api/starships/31/&#x27;
+  ],
+  vehicles: [
+    &#x27;https://swapi.py4e.com/api/vehicles/33/&#x27;
+  ],
+  species: [
+    &#x27;https://swapi.py4e.com/api/species/1/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-19T16:52:55.740000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T10:54:07.216000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/films/4/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/mocks/people.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="correctRequest"></a>
+                    <span class="name">
+                        <span ><b>correctRequest</b></span>
+                        <a href="#correctRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(people, &#x27;correct&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="people"></a>
+                    <span class="name">
+                        <span ><b>people</b></span>
+                        <a href="#people"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#People" target="_self" >APIPPeople</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Luke Skywalker&#x27;,
+  height: &#x27;172&#x27;,
+  mass: &#x27;77&#x27;,
+  hair_color: &#x27;blond&#x27;,
+  skin_color: &#x27;fair&#x27;,
+  eye_color: &#x27;blue&#x27;,
+  birth_year: &#x27;19BBY&#x27;,
+  gender: &#x27;male&#x27;,
+  homeworld: &#x27;https://swapi.py4e.com/api/planets/1/&#x27;,
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;,
+    &#x27;https://swapi.py4e.com/api/films/2/&#x27;,
+    &#x27;https://swapi.py4e.com/api/films/3/&#x27;,
+    &#x27;https://swapi.py4e.com/api/films/6/&#x27;,
+    &#x27;https://swapi.py4e.com/api/films/7/&#x27;
+  ],
+  species: [
+    &#x27;https://swapi.py4e.com/api/species/1/&#x27;
+  ],
+  vehicles: [
+    &#x27;https://swapi.py4e.com/api/vehicles/14/&#x27;,
+    &#x27;https://swapi.py4e.com/api/vehicles/30/&#x27;
+  ],
+  starships: [
+    &#x27;https://swapi.py4e.com/api/starships/12/&#x27;,
+    &#x27;https://swapi.py4e.com/api/starships/22/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-09T13:50:51.644000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T21:17:56.891000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/people/1/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/mocks/planets.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="correctRequest"></a>
+                    <span class="name">
+                        <span ><b>correctRequest</b></span>
+                        <a href="#correctRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(planet, &#x27;correct&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="incorrectRequest"></a>
+                    <span class="name">
+                        <span ><b>incorrectRequest</b></span>
+                        <a href="#incorrectRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(planet, &#x27;incorrect&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="planet"></a>
+                    <span class="name">
+                        <span ><b>planet</b></span>
+                        <a href="#planet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Planets.html" target="_self" >APIPlanets</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Tatooine&#x27;,
+  rotation_period: &#x27;23&#x27;,
+  orbital_period: &#x27;304&#x27;,
+  diameter: &#x27;10465&#x27;,
+  climate: &#x27;arid&#x27;,
+  gravity: &#x27;1 standard&#x27;,
+  terrain: &#x27;desert&#x27;,
+  surface_water: &#x27;1&#x27;,
+  population: &#x27;200000&#x27;,
+  residents: [
+    &#x27;https://swapi.py4e.com/api/people/1/&#x27;
+  ],
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-09T13:50:49.641000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T20:58:18.411000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/planets/1/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformedPlanet"></a>
+                    <span class="name">
+                        <span ><b>transformedPlanet</b></span>
+                        <a href="#transformedPlanet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Planets.html" target="_self" >Planets</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  id: &#x27;1&#x27;,
+  name: &#x27;Tatooine&#x27;,
+  rotationPeriod: &#x27;23&#x27;,
+  orbitalPeriod: &#x27;304&#x27;,
+  diameter: &#x27;10465&#x27;,
+  climate: &#x27;arid&#x27;,
+  gravity: &#x27;1 standard&#x27;,
+  terrain: &#x27;desert&#x27;,
+  surfaceWater: &#x27;1&#x27;,
+  population: &#x27;200000&#x27;,
+  residents: [
+    &#x27;https://swapi.py4e.com/api/people/1/&#x27;
+  ],
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-09T13:50:49.641000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T20:58:18.411000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/planets/1/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/mocks/species.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="correctRequest"></a>
+                    <span class="name">
+                        <span ><b>correctRequest</b></span>
+                        <a href="#correctRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(species, &#x27;correct&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="incorrectRequest"></a>
+                    <span class="name">
+                        <span ><b>incorrectRequest</b></span>
+                        <a href="#incorrectRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(species, &#x27;incorrect&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="species"></a>
+                    <span class="name">
+                        <span ><b>species</b></span>
+                        <a href="#species"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Species.html" target="_self" >APISpecies</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Human&#x27;,
+  classification: &#x27;mammal&#x27;,
+  designation: &#x27;sentient&#x27;,
+  average_height: &#x27;180&#x27;,
+  skin_colors: &#x27;caucasian, black, asian, hispanic&#x27;,
+  hair_colors: &#x27;blonde, brown, black, red&#x27;,
+  eye_colors: &#x27;brown, blue, green, hazel, grey, amber&#x27;,
+  average_lifespan: &#x27;120&#x27;,
+  homeworld: &#x27;https://swapi.py4e.com/api/planets/9/&#x27;,
+  language: &#x27;Galactic Basic&#x27;,
+  people: [
+    &#x27;https://swapi.py4e.com/api/people/1/&#x27;
+  ],
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-10T13:52:11.567000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T21:36:42.136000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/species/1/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformedSpecies"></a>
+                    <span class="name">
+                        <span ><b>transformedSpecies</b></span>
+                        <a href="#transformedSpecies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Species.html" target="_self" >Species</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  id: &#x27;2&#x27;,
+  name: &#x27;Human&#x27;,
+  classification: &#x27;mammal&#x27;,
+  designation: &#x27;sentient&#x27;,
+  averageHeight: &#x27;180&#x27;,
+  skinColors: &#x27;caucasian, black, asian, hispanic&#x27;,
+  hairColors: &#x27;blonde, brown, black, red&#x27;,
+  eyeColors: &#x27;brown, blue, green, hazel, grey, amber&#x27;,
+  averageLifespan: &#x27;120&#x27;,
+  homeworld: &#x27;https://swapi.py4e.com/api/planets/9/&#x27;,
+  language: &#x27;Galactic Basic&#x27;,
+  people: [
+    &#x27;https://swapi.py4e.com/api/people/1/&#x27;
+  ],
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-10T13:52:11.567000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T21:36:42.136000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/species/1/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/mocks/starships.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="correctRequest"></a>
+                    <span class="name">
+                        <span ><b>correctRequest</b></span>
+                        <a href="#correctRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(starships, &#x27;correct&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="incorrectRequest"></a>
+                    <span class="name">
+                        <span ><b>incorrectRequest</b></span>
+                        <a href="#incorrectRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(starships, &#x27;incorrect&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="starships"></a>
+                    <span class="name">
+                        <span ><b>starships</b></span>
+                        <a href="#starships"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Starships.html" target="_self" >APIStarships</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;CR90 corvette&#x27;,
+  model: &#x27;CR90 corvette&#x27;,
+  manufacturer: &#x27;Corellian Engineering Corporation&#x27;,
+  cost_in_credits: &#x27;3500000&#x27;,
+  length: &#x27;150&#x27;,
+  max_atmosphering_speed: &#x27;950&#x27;,
+  crew: &#x27;30-165&#x27;,
+  passengers: &#x27;600&#x27;,
+  cargo_capacity: &#x27;3000000&#x27;,
+  consumables: &#x27;1 year&#x27;,
+  hyperdrive_rating: &#x27;2.0&#x27;,
+  MGLT: &#x27;60&#x27;,
+  starship_class: &#x27;corvette&#x27;,
+  pilots: [],
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-10T14:20:33.369000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T21:23:49.867000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/starships/2/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformedStarships"></a>
+                    <span class="name">
+                        <span ><b>transformedStarships</b></span>
+                        <a href="#transformedStarships"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Starships.html" target="_self" >Starships</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  id: &#x27;2&#x27;,
+  name: &#x27;CR90 corvette&#x27;,
+  model: &#x27;CR90 corvette&#x27;,
+  manufacturer: &#x27;Corellian Engineering Corporation&#x27;,
+  costInCredits: &#x27;3500000&#x27;,
+  length: &#x27;150&#x27;,
+  maxAtmospheringSpeed: &#x27;950&#x27;,
+  crew: &#x27;30-165&#x27;,
+  passengers: &#x27;600&#x27;,
+  cargoCapacity: &#x27;3000000&#x27;,
+  consumables: &#x27;1 year&#x27;,
+  hyperdriveRating: &#x27;2.0&#x27;,
+  MGLT: &#x27;60&#x27;,
+  starshipClass: &#x27;corvette&#x27;,
+  pilots: [],
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-10T14:20:33.369000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T21:23:49.867000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/starships/2/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/mocks/vehicles.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="correctRequest"></a>
+                    <span class="name">
+                        <span ><b>correctRequest</b></span>
+                        <a href="#correctRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(vehicles, &#x27;correct&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="incorrectRequest"></a>
+                    <span class="name">
+                        <span ><b>incorrectRequest</b></span>
+                        <a href="#incorrectRequest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createRequest(vehicles, &#x27;incorrect&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformedVehicles"></a>
+                    <span class="name">
+                        <span ><b>transformedVehicles</b></span>
+                        <a href="#transformedVehicles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Vehicles.html" target="_self" >Vehicles</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  id: &#x27;2&#x27;,
+  name: &#x27;Sand Crawler&#x27;,
+  model: &#x27;Digger Crawler&#x27;,
+  manufacturer: &#x27;Corellia Mining Corporation&#x27;,
+  costInCredits: &#x27;150000&#x27;,
+  length: &#x27;36.8 &#x27;,
+  maxAtmospheringSpeed: &#x27;30&#x27;,
+  crew: &#x27;46&#x27;,
+  passengers: &#x27;30&#x27;,
+  cargoCapacity: &#x27;50000&#x27;,
+  consumables: &#x27;2 months&#x27;,
+  vehicleClass: &#x27;wheeled&#x27;,
+  pilots: [],
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;,
+    &#x27;https://swapi.py4e.com/api/films/5/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-10T15:36:25.724000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T21:30:21.661000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/vehicles/4/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vehicles"></a>
+                    <span class="name">
+                        <span ><b>vehicles</b></span>
+                        <a href="#vehicles"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Vehicles.html" target="_self" >APIVehicles</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  name: &#x27;Sand Crawler&#x27;,
+  model: &#x27;Digger Crawler&#x27;,
+  manufacturer: &#x27;Corellia Mining Corporation&#x27;,
+  cost_in_credits: &#x27;150000&#x27;,
+  length: &#x27;36.8 &#x27;,
+  max_atmosphering_speed: &#x27;30&#x27;,
+  crew: &#x27;46&#x27;,
+  passengers: &#x27;30&#x27;,
+  cargo_capacity: &#x27;50000&#x27;,
+  consumables: &#x27;2 months&#x27;,
+  vehicle_class: &#x27;wheeled&#x27;,
+  pilots: [],
+  films: [
+    &#x27;https://swapi.py4e.com/api/films/1/&#x27;,
+    &#x27;https://swapi.py4e.com/api/films/5/&#x27;
+  ],
+  created: new Date(&#x27;2014-12-10T15:36:25.724000Z&#x27;),
+  edited: new Date(&#x27;2014-12-20T21:30:21.661000Z&#x27;),
+  url: &#x27;https://swapi.py4e.com/api/vehicles/4/&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/SWAPISchemas/films.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FilmsSchema"></a>
+                    <span class="name">
+                        <span ><b>FilmsSchema</b></span>
+                        <a href="#FilmsSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>z.object({
+  characters: z.array(z.string().url()),
+  created: z.coerce.date(),
+  director: z.string(),
+  edited: z.coerce.date(),
+  episode_id: z.string(),
+  opening_crawl: z.string(),
+  planets: z.array(z.string().url()),
+  producer: z.string(),
+  release_date: z.string(),
+  species: z.array(z.string().url()),
+  starships: z.array(z.string().url()),
+  title: z.string(),
+  url: z.string().url(),
+  vehicles: z.array(z.string().url())
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/SWAPISchemas/people.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PeopleSchema"></a>
+                    <span class="name">
+                        <span ><b>PeopleSchema</b></span>
+                        <a href="#PeopleSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>z.object({
+  birth_year: z.string(),
+  created: z.coerce.date(),
+  edited: z.coerce.date(),
+  eye_color: z.string(),
+  films: z.array(z.string().url()),
+  gender: z.string(),
+  hair_color: z.string(),
+  height: z.string(),
+  homeworld: z.string(),
+  mass: z.string(),
+  name: z.string(),
+  skin_color: z.string(),
+  species: z.array(z.string().url()),
+  starships: z.array(z.string().url()),
+  url: z.string().url(),
+  vehicles: z.array(z.string().url())
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/SWAPISchemas/planets.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PlanetsSchema"></a>
+                    <span class="name">
+                        <span ><b>PlanetsSchema</b></span>
+                        <a href="#PlanetsSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>z.object({
+  climate: z.string(),
+  created: z.coerce.date(),
+  diameter: z.string(),
+  edited: z.coerce.date(),
+  films: z.array(z.string().url()),
+  gravity: z.string(),
+  name: z.string(),
+  orbital_period: z.string(),
+  population: z.string(),
+  residents: z.array(z.string().url()),
+  rotation_period: z.string(),
+  surface_water: z.string(),
+  terrain: z.string(),
+  url: z.string().url()
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/SWAPISchemas/species.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SpeciesSchema"></a>
+                    <span class="name">
+                        <span ><b>SpeciesSchema</b></span>
+                        <a href="#SpeciesSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>z.object({
+  average_height: z.string(),
+  average_lifespan: z.string(),
+  classification: z.string(),
+  created: z.coerce.date(),
+  designation: z.string(),
+  edited: z.coerce.date(),
+  eye_colors: z.string(),
+  films: z.array(z.string().url()),
+  hair_colors: z.string(),
+  homeworld: z.string(),
+  language: z.string(),
+  name: z.string(),
+  people: z.array(z.string().url()),
+  skin_colors: z.string(),
+  url: z.string().url()
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/SWAPISchemas/starships.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="StarshipsSchema"></a>
+                    <span class="name">
+                        <span ><b>StarshipsSchema</b></span>
+                        <a href="#StarshipsSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>z.object({
+  cargo_capacity: z.string(),
+  consumables: z.string(),
+  cost_in_credits: z.string(),
+  created: z.coerce.date(),
+  crew: z.string(),
+  edited: z.coerce.date(),
+  films: z.array(z.string().url()),
+  hyperdrive_rating: z.string(),
+  length: z.string(),
+  manufacturer: z.string(),
+  max_atmosphering_speed: z.string(),
+  MGLT: z.string(),
+  model: z.string(),
+  name: z.string(),
+  passengers: z.string(),
+  pilots: z.array(z.string().url()),
+  starship_class: z.string(),
+  url: z.string().url()
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/SWAPISchemas/vehicles.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VehiclesSchema"></a>
+                    <span class="name">
+                        <span ><b>VehiclesSchema</b></span>
+                        <a href="#VehiclesSchema"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>z.object({
+  cargo_capacity: z.string(),
+  consumables: z.string(),
+  cost_in_credits: z.string(),
+  created: z.coerce.date(),
+  crew: z.string(),
+  edited: z.coerce.date(),
+  films: z.array(z.string().url()),
+  length: z.string(),
+  manufacturer: z.string(),
+  max_atmosphering_speed: z.string(),
+  model: z.string(),
+  name: z.string(),
+  passengers: z.string(),
+  pilots: z.array(z.string().url()),
+  url: z.string().url(),
+  vehicle_class: z.string()
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,10 +1,10 @@
 import type { TestingModule } from '@nestjs/testing'
 import type { AxiosResponse } from 'axios'
 import type { Film } from 'src/generated/graphql.js'
-import type { APIFilms, APIResponse } from 'SWAPISchemas/index.js'
+import type { APIFilms, APIResponse } from 'src/SWAPISchemas/index.js'
 import { Test } from '@nestjs/testing'
 import axios from 'axios'
-import { correctRequest, descriptionWords, incorrectRequest, transformedFilms } from '../../mocks/films.js'
+import { correctRequest, descriptionWords, incorrectRequest, transformedFilms } from '../mocks/films.js'
 import { PeopleService } from '../people/people.service.js'
 import { FilmsService } from './films.service.js'
 

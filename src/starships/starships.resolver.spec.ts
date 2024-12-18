@@ -1,6 +1,6 @@
 import type { TestingModule } from '@nestjs/testing'
 import { Test } from '@nestjs/testing'
-import { transformedStarships } from '../../mocks/starships.js'
+import { transformedStarships } from '../mocks/starships.js'
 import { StarshipsResolver } from './starships.resolver.js'
 import { StarshipsService } from './starships.service.js'
 

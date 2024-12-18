@@ -1,10 +1,10 @@
 import type { TestingModule } from '@nestjs/testing'
 import type { AxiosResponse } from 'axios'
 import type { Planets } from 'src/generated/graphql.js'
-import type { APIPlanets, APIResponse } from 'SWAPISchemas/index.js'
+import type { APIPlanets, APIResponse } from 'src/SWAPISchemas/index.js'
 import { Test } from '@nestjs/testing'
 import axios from 'axios'
-import { correctRequest, incorrectRequest } from '../../mocks/planets.js'
+import { correctRequest, incorrectRequest } from '../mocks/planets.js'
 import { PlanetsService } from './planets.service.js'
 
 jest.mock('axios')

@@ -1,6 +1,6 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common'
 import axios from 'axios'
-import { APIResponse, APISpecies } from 'SWAPISchemas/index.js'
+import { APIResponse, APISpecies } from 'src/SWAPISchemas/index.js'
 import { Species } from '../generated/graphql.js'
 
 @Injectable()

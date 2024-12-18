@@ -1,6 +1,6 @@
 import { HttpException, Injectable, Logger } from '@nestjs/common'
 import axios from 'axios'
-import { APIFilms, APIResponse } from 'SWAPISchemas/index.js'
+import { APIFilms, APIResponse } from 'src/SWAPISchemas/index.js'
 import { Film } from '../generated/graphql.js'
 import { PeopleService } from '../people/people.service.js'
 

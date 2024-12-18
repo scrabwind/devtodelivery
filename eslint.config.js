@@ -18,7 +18,8 @@ export default antfu({
       'style/comma-dangle': 'error',
       'node/prefer-global/process': 'off'
     }
-  }
+  },
+  ignores: ['documentation/**']
 }, {
   ...jest.configs['flat/recommended'],
   files: ['**/*.spec.ts', '**/*.e2e.ts']

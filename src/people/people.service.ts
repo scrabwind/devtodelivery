@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common'
 import axios from 'axios'
-import { APIPPeople, APIResponse } from 'SWAPISchemas/index.js'
+import { APIPPeople, APIResponse } from 'src/SWAPISchemas/index.js'
 
 @Injectable()
 export class PeopleService {

@@ -1,9 +1,9 @@
 import type { TestingModule } from '@nestjs/testing'
 import type { AxiosResponse } from 'axios'
-import type { APIPPeople, APIResponse } from 'SWAPISchemas/index.js'
+import type { APIPPeople, APIResponse } from 'src/SWAPISchemas/index.js'
 import { Test } from '@nestjs/testing'
 import axios from 'axios'
-import { correctRequest, people } from '../../mocks/people.js'
+import { correctRequest, people } from '../mocks/people.js'
 import { PeopleService } from './people.service.js'
 
 jest.mock('axios')
