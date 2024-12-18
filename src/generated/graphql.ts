@@ -80,6 +80,7 @@ export interface Species {
 }
 
 export interface Starships {
+    id: string;
     cargoCapacity: string;
     consumables: string;
     costInCredits: string;

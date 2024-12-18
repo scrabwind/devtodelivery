@@ -25,6 +25,7 @@ export const species: APISpecies = {
 }
 
 export const transformedSpecies: Species = {
+  id: "2",
   name: "Human",
   classification: "mammal",
   designation: "sentient",
