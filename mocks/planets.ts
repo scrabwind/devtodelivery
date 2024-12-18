@@ -1,7 +1,8 @@
 import type { AxiosResponse } from 'axios'
 import type { Planets } from 'src/generated/graphql.js'
 import type { APIPlanets } from 'SWAPISchemas/index.js'
-import axios, { AxiosHeaders } from 'axios'
+import { AxiosHeaders } from 'axios'
+import { createRequest } from './common.js'
 
 export const planet: APIPlanets = {
   name: 'Tatooine',
@@ -46,22 +47,6 @@ export const transformedPlanet: Planets = {
   url: 'https://swapi.py4e.com/api/planets/1/'
 }
 
-export const correctRequest: AxiosResponse<APIPlanets> = {
-  data: planet,
-  config: {
-    headers: new AxiosHeaders()
-  },
-  headers: {},
-  status: 200,
-  statusText: 'Ok'
-}
+export const correctRequest = createRequest(planet, "correct")
 
-export const incorrectRequest: AxiosResponse<unknown> = {
-  data: {},
-  config: {
-    headers: new AxiosHeaders()
-  },
-  headers: {},
-  status: 404,
-  statusText: 'Not Found'
-}
+export const incorrectRequest = createRequest(planet, "incorrect")
